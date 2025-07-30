@@ -24,7 +24,7 @@ order by t.total desc;
 ```sql
 select clie.nombre, 
 (
-select * --COALESCE(sum(tra.monto),0)
+select COALESCE(sum(tra.monto),0)
 from cliente cli
 inner join cuenta cue on cli.id_cliente = cue.id_cliente
 inner join transaccion tra on tra.num_cuenta = cue.num_cuenta
